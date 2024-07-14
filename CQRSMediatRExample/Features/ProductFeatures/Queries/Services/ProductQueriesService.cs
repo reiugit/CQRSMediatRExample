@@ -1,9 +1,9 @@
 ﻿using MediatR;
-using CQRSMediatRExample.Features.ProductFeatures.Queries.List;
-using CQRSMediatRExample.Features.ProductFeatures.Queries.Get;
 using CQRSMediatRExample.Domain;
+using CQRSMediatRExample.Features.ProductFeatures.Queries.Handlers.List;
+using CQRSMediatRExample.Features.ProductFeatures.Queries.Handlers.Get;
 
-namespace CQRSMediatRExample.Features.ProductFeatures.Services.Queries;
+namespace CQRSMediatRExample.Features.ProductFeatures.Queries.Services;
 
 public class ProductQueriesService(ISender mediatr) : IProductQueriesService
 {

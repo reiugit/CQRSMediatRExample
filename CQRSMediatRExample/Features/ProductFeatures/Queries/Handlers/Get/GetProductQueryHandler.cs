@@ -2,13 +2,12 @@
 using CQRSMediatRExample.Data;
 using CQRSMediatRExample.Domain;
 
-namespace CQRSMediatRExample.Features.ProductFeatures.Queries.Get;
+namespace CQRSMediatRExample.Features.ProductFeatures.Queries.Handlers.Get;
 
 public class GetProductQueryHandler(AppDbContext context) : IRequestHandler<GetProductQuery, Product?>
 {
     public async Task<Product?> Handle(GetProductQuery request, CancellationToken cancellationToken)
     {
-        return await context.Products
-                            .FindAsync([request.Id], cancellationToken);
+        return await context.Products.FindAsync([request.Id], cancellationToken);
     }
 }

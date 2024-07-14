@@ -1,7 +1,7 @@
-﻿using CQRSMediatRExample.Features.ProductFeatures.Dtos;
-using CQRSMediatRExample.Features.ProductFeatures.Services.Queries;
+﻿using CQRSMediatRExample.Features.ProductFeatures.Queries.Dtos;
+using CQRSMediatRExample.Features.ProductFeatures.Queries.Services;
 
-namespace CQRSMediatRExample.Features.ProductFeatures.Endpoints;
+namespace CQRSMediatRExample.Features.ProductFeatures.Queries.Endpoints;
 
 public static class QueryEndpoints
 {

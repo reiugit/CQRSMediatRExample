@@ -2,7 +2,7 @@
 using CQRSMediatRExample.Data;
 using CQRSMediatRExample.Domain;
 
-namespace CQRSMediatRExample.Features.ProductFeatures.Commands.Update;
+namespace CQRSMediatRExample.Features.ProductFeatures.Commands.Handlers.Update;
 
 public class UpdateProductCommandHandler(AppDbContext context) : IRequestHandler<UpdateProductCommand, Product?>
 {

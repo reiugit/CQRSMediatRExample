@@ -2,7 +2,7 @@
 using CQRSMediatRExample.Data;
 using CQRSMediatRExample.Domain;
 
-namespace CQRSMediatRExample.Features.ProductFeatures.Commands.Create;
+namespace CQRSMediatRExample.Features.ProductFeatures.Commands.Handlers.Create;
 
 public class CreateProductCommandHandler(AppDbContext context) : IRequestHandler<CreateProductCommand, Product>
 {

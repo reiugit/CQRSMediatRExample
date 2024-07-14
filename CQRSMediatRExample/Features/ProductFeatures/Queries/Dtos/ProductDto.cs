@@ -1,6 +1,6 @@
 ﻿using CQRSMediatRExample.Domain;
 
-namespace CQRSMediatRExample.Features.ProductFeatures.Dtos;
+namespace CQRSMediatRExample.Features.ProductFeatures.Queries.Dtos;
 
 public record ProductDto(Guid Id, string Name)
 {

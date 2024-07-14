@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using CQRSMediatRExample.Data;
 
-namespace CQRSMediatRExample.Features.ProductFeatures.Commands.Delete;
+namespace CQRSMediatRExample.Features.ProductFeatures.Commands.Handlers.Delete;
 
 public class DeleteProductCommandHandler(AppDbContext context) : IRequestHandler<DeleteProductCommand>
 {

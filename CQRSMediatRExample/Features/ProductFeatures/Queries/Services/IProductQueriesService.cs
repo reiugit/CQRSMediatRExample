@@ -1,6 +1,6 @@
 ﻿using CQRSMediatRExample.Domain;
 
-namespace CQRSMediatRExample.Features.ProductFeatures.Services.Queries;
+namespace CQRSMediatRExample.Features.ProductFeatures.Queries.Services;
 
 public interface IProductQueriesService
 {

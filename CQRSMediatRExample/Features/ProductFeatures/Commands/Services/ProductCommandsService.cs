@@ -1,10 +1,10 @@
 ﻿using MediatR;
-using CQRSMediatRExample.Features.ProductFeatures.Commands.Create;
-using CQRSMediatRExample.Features.ProductFeatures.Commands.Update;
-using CQRSMediatRExample.Features.ProductFeatures.Commands.Delete;
 using CQRSMediatRExample.Domain;
+using CQRSMediatRExample.Features.ProductFeatures.Commands.Handlers.Create;
+using CQRSMediatRExample.Features.ProductFeatures.Commands.Handlers.Update;
+using CQRSMediatRExample.Features.ProductFeatures.Commands.Handlers.Delete;
 
-namespace CQRSMediatRExample.Features.ProductFeatures.Services.Commands;
+namespace CQRSMediatRExample.Features.ProductFeatures.Commands.Services;
 
 public class ProductCommandsService(ISender mediatr) : IProductCommandsService
 {

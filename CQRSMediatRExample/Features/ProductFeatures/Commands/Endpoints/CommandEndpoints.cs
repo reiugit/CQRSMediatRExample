@@ -1,7 +1,7 @@
-﻿using CQRSMediatRExample.Features.ProductFeatures.Dtos;
-using CQRSMediatRExample.Features.ProductFeatures.Services.Commands;
+﻿using CQRSMediatRExample.Features.ProductFeatures.Commands.Dtos;
+using CQRSMediatRExample.Features.ProductFeatures.Commands.Services;
 
-namespace CQRSMediatRExample.Features.ProductFeatures.Endpoints;
+namespace CQRSMediatRExample.Features.ProductFeatures.Commands.Endpoints;
 
 public static class CommandEndpoints
 {

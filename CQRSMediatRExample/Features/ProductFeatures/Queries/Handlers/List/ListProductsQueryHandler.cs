@@ -3,7 +3,7 @@ using MediatR;
 using CQRSMediatRExample.Data;
 using CQRSMediatRExample.Domain;
 
-namespace CQRSMediatRExample.Features.ProductFeatures.Queries.List;
+namespace CQRSMediatRExample.Features.ProductFeatures.Queries.Handlers.List;
 
 public class ListProductsQueryHandler(AppDbContext context) : IRequestHandler<ListProductsQuery, List<Product>>
 {
