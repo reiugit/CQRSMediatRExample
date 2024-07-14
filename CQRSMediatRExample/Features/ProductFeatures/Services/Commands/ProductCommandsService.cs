@@ -1,21 +1,13 @@
 ﻿using MediatR;
-using CQRSMediatRExample.Features.ProductFeatures.Queries.List;
-using CQRSMediatRExample.Features.ProductFeatures.Queries.Get;
 using CQRSMediatRExample.Features.ProductFeatures.Commands.Create;
 using CQRSMediatRExample.Features.ProductFeatures.Commands.Update;
 using CQRSMediatRExample.Features.ProductFeatures.Commands.Delete;
 using CQRSMediatRExample.Domain;
 
-namespace CQRSMediatRExample.Features.ProductFeatures.Services;
+namespace CQRSMediatRExample.Features.ProductFeatures.Services.Commands;
 
-public class ProductsService(ISender mediatr) : IProductsService
+public class ProductCommandsService(ISender mediatr) : IProductCommandsService
 {
-    public async Task<List<Product>> ListProducts()
-        => await mediatr.Send(new ListProductsQuery());
-
-    public async Task<Product> GetProduct(Guid id)
-        => await mediatr.Send(new GetProductQuery(id));
-
     public async Task<Product> CreateProduct(Product product)
         => await mediatr.Send(new CreateProductCommand(product));
 

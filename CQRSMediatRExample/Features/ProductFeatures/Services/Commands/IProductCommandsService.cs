@@ -1,11 +1,9 @@
 ﻿using CQRSMediatRExample.Domain;
 
-namespace CQRSMediatRExample.Features.ProductFeatures.Services;
+namespace CQRSMediatRExample.Features.ProductFeatures.Services.Commands;
 
-public interface IProductsService
+public interface IProductCommandsService
 {
-    Task<List<Product>> ListProducts();
-    Task<Product> GetProduct(Guid id);
     Task<Product> CreateProduct(Product product);
     Task<Product> UpdateProduct(Guid id, Product product);
     Task DeleteProduct(Guid id);
