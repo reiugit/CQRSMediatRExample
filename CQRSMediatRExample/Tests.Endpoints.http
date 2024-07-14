@@ -5,7 +5,7 @@ GET {{Host}}/products/
 Accept: application/json
 
 ### GET
-GET {{Host}}/products/36d37e7f-2cf1-4397-86be-08cba6165697
+GET {{Host}}/products/df1a1a66-77c1-41da-9b61-d0570bf65bf6
 Accept: application/json
 
 ### POST
@@ -18,7 +18,7 @@ Content-Type: application/json
 }
 
 ### PUT
-PUT {{Host}}/products/36d37e7f-2cf1-4397-86be-08cba6165697
+PUT {{Host}}/products/df1a1a66-77c1-41da-9b61-d0570bf65bf6
 Accept: application/json
 Content-Type: application/json
 
@@ -27,7 +27,7 @@ Content-Type: application/json
 }
 
 ###
-DELETE {{Host}}/products/36d37e7f-2cf1-4397-86be-08cba6165697
+DELETE {{Host}}/products/df1a1a66-77c1-41da-9b61-d0570bf65bf6
 Accept: application/json
 
 ###
