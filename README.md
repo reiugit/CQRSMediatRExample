@@ -4,7 +4,7 @@
 * ListProductsQuery
 * GetProductQuery
 
-#### Commands
+### Commands
 * CreateProductCommand
 * UpdateProductCommand
 * DeleteProductCommand
