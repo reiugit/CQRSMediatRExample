@@ -1,8 +1,8 @@
 # CQRS example using MediatR
 
-* CQRS (“Command Query Responsibility Segregation”)
-* MediatR
-* Vertical Slice Architecture
+    * CQRS (“Command Query Responsibility Segregation”)
+    * MediatR
+    * Vertical Slice Architecture
 
 ### Queries
 * ListProductsQuery
