@@ -1,0 +1,7 @@
+﻿namespace CQRSMediatRExample.Domain;
+
+public class Product
+{
+    public Guid Id { get; set; } = Guid.NewGuid();
+    public string Name { get; set; } = "";
+}
