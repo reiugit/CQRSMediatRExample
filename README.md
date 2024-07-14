@@ -3,6 +3,7 @@ CQRS stands for “Command Query Responsibility Segregation”.
 
     * CQRS
     * MediatR
+    * Services
     * Vertical Slice Architecture
 
 ### Queries
