@@ -1,6 +1,7 @@
 # CQRS example using MediatR
+CQRS stands for “Command Query Responsibility Segregation”.
 
-    * CQRS (“Command Query Responsibility Segregation”)
+    * CQRS
     * MediatR
     * Vertical Slice Architecture
 
