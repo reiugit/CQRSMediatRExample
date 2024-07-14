@@ -1,6 +1,6 @@
 # CQRS example using MediatR
 
-“Command Query Responsibility Segregation”
+CQRS stands for “Command Query Responsibility Segregation”
 
 ### Queries
 * ListProductsQuery
