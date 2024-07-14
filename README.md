@@ -12,8 +12,5 @@ CQRS stands for “Command Query Responsibility Segregation”
 * DeleteProductCommand
 
 ### Endpoints
-* List
-* Get
-* Create
-* Update
-* Delete
+* List, Get
+* Create, Update, Delete
