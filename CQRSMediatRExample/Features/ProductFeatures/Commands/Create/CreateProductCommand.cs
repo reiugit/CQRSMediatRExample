@@ -1,6 +1,6 @@
 ﻿using MediatR;
-using CQRSMediatRExample.Features.ProductFeatures.Dtos;
+using CQRSMediatRExample.Domain;
 
 namespace CQRSMediatRExample.Features.ProductFeatures.Commands.Create;
 
-public record CreateProductCommand(CreateProductDto CreateProductDto) : IRequest<ProductDto>;
+public record CreateProductCommand(Product Product) : IRequest<Product>;

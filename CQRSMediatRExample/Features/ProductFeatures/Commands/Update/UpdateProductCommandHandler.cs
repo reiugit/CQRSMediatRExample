@@ -1,12 +1,12 @@
 ﻿using MediatR;
 using CQRSMediatRExample.Data;
-using CQRSMediatRExample.Features.ProductFeatures.Dtos;
+using CQRSMediatRExample.Domain;
 
 namespace CQRSMediatRExample.Features.ProductFeatures.Commands.Update;
 
-public class UpdateProductCommandHandler(AppDbContext context) : IRequestHandler<UpdateProductCommand, ProductDto?>
+public class UpdateProductCommandHandler(AppDbContext context) : IRequestHandler<UpdateProductCommand, Product?>
 {
-    public async Task<ProductDto?> Handle(UpdateProductCommand command, CancellationToken cancellationToken)
+    public async Task<Product?> Handle(UpdateProductCommand command, CancellationToken cancellationToken)
     {
         var product = await context.Products.FindAsync([command.Id], cancellationToken);
 
@@ -15,11 +15,11 @@ public class UpdateProductCommandHandler(AppDbContext context) : IRequestHandler
             return null;
         }
 
-        product.Name = command.UpdateProductDto.Name;
+        product.Name = command.Product.Name;
 
         context.Update(product);
         await context.SaveChangesAsync(cancellationToken);
 
-        return ProductDto.FromProduct(product);
+        return product;
     }
 }

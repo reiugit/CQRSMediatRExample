@@ -1,3 +1,9 @@
-﻿namespace CQRSMediatRExample.Features.ProductFeatures.Dtos;
+﻿using CQRSMediatRExample.Domain;
 
-public record UpdateProductDto(string Name);
+namespace CQRSMediatRExample.Features.ProductFeatures.Dtos;
+
+public record UpdateProductDto(string Name)
+{
+    public Product ToProduct()
+        => new() { Name = Name };
+}

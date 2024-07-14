@@ -1,6 +1,6 @@
 ﻿using MediatR;
-using CQRSMediatRExample.Features.ProductFeatures.Dtos;
+using CQRSMediatRExample.Domain;
 
 namespace CQRSMediatRExample.Features.ProductFeatures.Queries.List;
 
-public record ListProductsQuery : IRequest<List<ProductDto>>;
+public record ListProductsQuery : IRequest<List<Product>>;

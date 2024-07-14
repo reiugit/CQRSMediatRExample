@@ -1,58 +1,55 @@
 using Microsoft.EntityFrameworkCore;
-using MediatR;
-using CQRSMediatRExample.Features.ProductFeatures.Queries.List;
-using CQRSMediatRExample.Features.ProductFeatures.Queries.Get;
-using CQRSMediatRExample.Features.ProductFeatures.Commands.Create;
-using CQRSMediatRExample.Features.ProductFeatures.Commands.Update;
-using CQRSMediatRExample.Features.ProductFeatures.Commands.Delete;
 using CQRSMediatRExample.Features.ProductFeatures.Dtos;
 using CQRSMediatRExample.Data;
+using CQRSMediatRExample.Features.ProductFeatures.Services;
 
 var builder = WebApplication.CreateBuilder(args);
-
-builder.Services.AddDbContext<AppDbContext>(o => o.UseInMemoryDatabase("AppDb"));
-builder.Services.AddMediatR(config => config.RegisterServicesFromAssembly(typeof(Program).Assembly));
+{
+    builder.Services.AddDbContext<AppDbContext>(o => o.UseInMemoryDatabase("AppDb"));
+    builder.Services.AddMediatR(config => config.RegisterServicesFromAssembly(typeof(Program).Assembly));
+    builder.Services.AddScoped<IProductsService, ProductsService>();
+}
 
 var app = builder.Build();
 
-app.MapGet("/products", async (ISender mediatr) =>
+app.MapGet("/products", async (IProductsService productsService) =>
 {
-    var productDtos = await mediatr.Send(new ListProductsQuery());
+    var products = await productsService.ListProducts();
+    var productsDto = products.Select(p => ProductDto.FromProduct(p));
 
-    return Results.Ok(productDtos);
+    return Results.Ok(productsDto);
 });
 
-app.MapGet("/products/{id:guid}", async (ISender mediatr, Guid id) =>
+app.MapGet("/products/{id:guid}", async (IProductsService productsService, Guid id) =>
 {
-    var productDto = await mediatr.Send(new GetProductQuery(id));
+    var product = await productsService.GetProduct(id);
 
-    return productDto is null
+    return product is null
         ? Results.NotFound()
-        : Results.Ok(productDto);
+        : Results.Ok(ProductDto.FromProduct(product));
 });
 
-app.MapPost("/products", async (ISender mediatr, CreateProductDto createProductDto) =>
+app.MapPost("/products", async (IProductsService productsService, CreateProductDto createProductDto) =>
 {
-    var productDto = await mediatr.Send(new CreateProductCommand(createProductDto));
+    var product = await productsService.CreateProduct(createProductDto.ToProduct());
 
-    return productDto is null
+    return product is null
         ? Results.BadRequest()
-        : Results.Created($"/products/{productDto.Id}", productDto);
+        : Results.Created($"/products/{product.Id}", ProductDto.FromProduct(product));
 });
 
-app.MapPut("/products/{id:guid}", async (ISender mediatr, Guid id, UpdateProductDto updateProductDto) =>
+app.MapPut("/products/{id:guid}", async (IProductsService productsService, Guid id, UpdateProductDto updateProductDto) =>
 {
-    var result = await mediatr.Send(new UpdateProductCommand(id, updateProductDto));
+    var product = await productsService.UpdateProduct(id, updateProductDto.ToProduct());
 
-    return result is null
+    return product is null
         ? Results.BadRequest()
-        : Results.Ok(result);
+        : Results.Created($"/products/{product.Id}", ProductDto.FromProduct(product));
 });
 
-app.MapDelete("/products/{id:guid}", async (ISender mediatr, Guid id) =>
+app.MapDelete("/products/{id:guid}", async (IProductsService productsService, Guid id) =>
 {
-    await mediatr.Send(new DeleteProductCommand(id));
-
+    await productsService.DeleteProduct(id);
     return Results.NoContent();
 });
 

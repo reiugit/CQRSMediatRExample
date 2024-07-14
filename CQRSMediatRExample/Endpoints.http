@@ -1,15 +1,14 @@
 @Host = http://localhost:5088
 
+### LIST
 GET {{Host}}/products/
 Accept: application/json
 
-###
-
-GET {{Host}}/products/38fc522c-de9c-4500-ab77-0617f547e9c5/
+### GET
+GET {{Host}}/products/36d37e7f-2cf1-4397-86be-08cba6165697
 Accept: application/json
 
-###
-
+### POST
 POST {{Host}}/products/
 Accept: application/json
 Content-Type: application/json
@@ -18,9 +17,8 @@ Content-Type: application/json
     "name": "Product 3"
 }
 
-###
-
-PUT {{Host}}/products/38fc522c-de9c-4500-ab77-0617f547e9c5/
+### PUT
+PUT {{Host}}/products/36d37e7f-2cf1-4397-86be-08cba6165697
 Accept: application/json
 Content-Type: application/json
 
@@ -29,8 +27,7 @@ Content-Type: application/json
 }
 
 ###
-
-DELETE {{Host}}/products/8e01d5fd-3918-468b-a837-699fae0ba8ec/
+DELETE {{Host}}/products/36d37e7f-2cf1-4397-86be-08cba6165697
 Accept: application/json
 
 ###

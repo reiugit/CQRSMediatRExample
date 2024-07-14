@@ -1,16 +1,14 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using MediatR;
 using CQRSMediatRExample.Data;
-using CQRSMediatRExample.Features.ProductFeatures.Dtos;
+using CQRSMediatRExample.Domain;
 
 namespace CQRSMediatRExample.Features.ProductFeatures.Queries.List;
 
-public class ListProductsQueryHandler(AppDbContext context) : IRequestHandler<ListProductsQuery, List<ProductDto>>
+public class ListProductsQueryHandler(AppDbContext context) : IRequestHandler<ListProductsQuery, List<Product>>
 {
-    public async Task<List<ProductDto>> Handle(ListProductsQuery request, CancellationToken cancellationToken)
+    public async Task<List<Product>> Handle(ListProductsQuery request, CancellationToken cancellationToken)
     {
-        return await context.Products
-            .Select(p => ProductDto.FromProduct(p))
-            .ToListAsync(cancellationToken);
+        return await context.Products.ToListAsync(cancellationToken);
     }
 }

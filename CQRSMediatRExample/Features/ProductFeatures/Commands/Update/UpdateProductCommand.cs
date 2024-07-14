@@ -1,6 +1,6 @@
-﻿using CQRSMediatRExample.Features.ProductFeatures.Dtos;
-using MediatR;
+﻿using MediatR;
+using CQRSMediatRExample.Domain;
 
 namespace CQRSMediatRExample.Features.ProductFeatures.Commands.Update;
 
-public record UpdateProductCommand(Guid Id, UpdateProductDto UpdateProductDto) : IRequest<ProductDto>;
+public record UpdateProductCommand(Guid Id, Product Product) : IRequest<Product>;

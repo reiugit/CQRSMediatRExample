@@ -1,18 +1,18 @@
 ﻿using MediatR;
 using CQRSMediatRExample.Data;
-using CQRSMediatRExample.Features.ProductFeatures.Dtos;
+using CQRSMediatRExample.Domain;
 
 namespace CQRSMediatRExample.Features.ProductFeatures.Commands.Create;
 
-public class CreateProductCommandHandler(AppDbContext context) : IRequestHandler<CreateProductCommand, ProductDto>
+public class CreateProductCommandHandler(AppDbContext context) : IRequestHandler<CreateProductCommand, Product>
 {
-    public async Task<ProductDto> Handle(CreateProductCommand command, CancellationToken cancellationToken)
+    public async Task<Product> Handle(CreateProductCommand command, CancellationToken cancellationToken)
     {
-        var product = command.CreateProductDto.ToProduct();
+        var product = command.Product;
 
         context.Add(product);
         await context.SaveChangesAsync(cancellationToken);
 
-        return ProductDto.FromProduct(product);
+        return product;
     }
 }
