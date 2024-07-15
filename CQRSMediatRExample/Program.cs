@@ -8,7 +8,7 @@ using CQRSMediatRExample.Features.ProductFeatures.Commands.Services;
 var builder = WebApplication.CreateBuilder(args);
 {
     builder.Services.AddDbContext<AppDbContext>(o => o.UseInMemoryDatabase("AppDb"));
-    builder.Services.AddMediatR(config => config.RegisterServicesFromAssembly(typeof(Program).Assembly));
+    builder.Services.AddMediatR(config => config.RegisterServicesFromAssemblyContaining<Program>());
     
     builder.Services.AddScoped<IProductQueriesService, ProductQueriesService>();
     builder.Services.AddScoped<IProductCommandsService, ProductCommandsService>();
