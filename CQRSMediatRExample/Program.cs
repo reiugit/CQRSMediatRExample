@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
+using MediatR;
 using CQRSMediatRExample.Data;
+using CQRSMediatRExample.Behaviours;
 using CQRSMediatRExample.Features.ProductFeatures.Queries.Endpoints;
 using CQRSMediatRExample.Features.ProductFeatures.Commands.Endpoints;
 
@@ -7,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 {
     builder.Services.AddDbContext<AppDbContext>(o => o.UseInMemoryDatabase("AppDb"));
     builder.Services.AddMediatR(config => config.RegisterServicesFromAssemblyContaining<Program>());
+    builder.Services.AddSingleton(typeof(IPipelineBehavior<,>), typeof(LoggingBehaviour<,>));
 }
 
 var app = builder.Build();
