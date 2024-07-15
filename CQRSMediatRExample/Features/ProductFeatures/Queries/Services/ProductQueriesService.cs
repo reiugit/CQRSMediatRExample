@@ -1,7 +1,6 @@
 ﻿using MediatR;
 using CQRSMediatRExample.Domain;
-using CQRSMediatRExample.Features.ProductFeatures.Queries.Handlers.List;
-using CQRSMediatRExample.Features.ProductFeatures.Queries.Handlers.Get;
+using CQRSMediatRExample.Features.ProductFeatures.Queries.Handlers;
 
 namespace CQRSMediatRExample.Features.ProductFeatures.Queries.Services;
 

@@ -2,7 +2,9 @@
 using CQRSMediatRExample.Data;
 using CQRSMediatRExample.Domain;
 
-namespace CQRSMediatRExample.Features.ProductFeatures.Queries.Handlers.Get;
+namespace CQRSMediatRExample.Features.ProductFeatures.Queries.Handlers;
+
+public record GetProductQuery(Guid Id) : IRequest<Product>;
 
 public class GetProductQueryHandler(AppDbContext context) : IRequestHandler<GetProductQuery, Product?>
 {

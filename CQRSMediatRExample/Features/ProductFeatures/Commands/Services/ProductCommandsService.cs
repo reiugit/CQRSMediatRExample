@@ -1,8 +1,6 @@
 ﻿using MediatR;
 using CQRSMediatRExample.Domain;
-using CQRSMediatRExample.Features.ProductFeatures.Commands.Handlers.Create;
-using CQRSMediatRExample.Features.ProductFeatures.Commands.Handlers.Update;
-using CQRSMediatRExample.Features.ProductFeatures.Commands.Handlers.Delete;
+using CQRSMediatRExample.Features.ProductFeatures.Commands.Handlers;
 
 namespace CQRSMediatRExample.Features.ProductFeatures.Commands.Services;
 
