@@ -18,3 +18,6 @@ CQRS stands for “Command Query Responsibility Segregation”.
 ### Endpoints
 * List, Get
 * Create, Update, Delete
+
+### Logging
+MediatR Behaviour is used for logging of all requests.
