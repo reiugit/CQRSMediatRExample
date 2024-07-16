@@ -12,10 +12,8 @@ public class ProductDeleteLoggingBehaviour<TRequest, TResponse>(ILogger<ProductD
         RequestHandlerDelegate<TResponse> next,
         CancellationToken cancellationToken)
     {
-        logger.LogWarning(">> Product with ID '{ProductId}' is going to be deleted.\n", request.Id);
+        logger.LogWarning(">> Product '{ProductId}' is requested to be deleted.\n", request.Id);
 
-        var response = await next();
-
-        return response;
+        return await next();
     }
 }
