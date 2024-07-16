@@ -1,11 +1,13 @@
 ﻿using MediatR;
 using CQRSMediatRExample.Data;
+using CQRSMediatRExample.Notifications;
+using CQRSMediatRExample.Domain;
 
 namespace CQRSMediatRExample.Features.ProductFeatures.Commands.Handlers;
 
 public record DeleteProductCommand(Guid Id) : IRequest;
 
-public class DeleteProductCommandHandler(AppDbContext context) : IRequestHandler<DeleteProductCommand>
+public class DeleteProductCommandHandler(AppDbContext context, IPublisher mediatr) : IRequestHandler<DeleteProductCommand>
 {
     public async Task Handle(DeleteProductCommand command, CancellationToken cancellationToken)
     {
@@ -13,6 +15,7 @@ public class DeleteProductCommandHandler(AppDbContext context) : IRequestHandler
 
         if (product == null)
         {
+            await mediatr.Publish(new EntityWasAlreadyDeletetedNotification(typeof(Product).Name), cancellationToken);
             return;
         }
 
