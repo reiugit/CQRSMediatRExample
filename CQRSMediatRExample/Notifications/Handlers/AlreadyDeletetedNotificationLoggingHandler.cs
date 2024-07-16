@@ -1,7 +1,7 @@
-﻿using CQRSMediatRExample.Notifications;
-using MediatR;
+﻿using MediatR;
+using CQRSMediatRExample.Notifications.Contracts;
 
-namespace CQRSMediatRExample.NotificationHandlers;
+namespace CQRSMediatRExample.Notifications.NotificationHandlers;
 
 public class AlreadyDeletetedNotificationLoggingHandler(ILogger<AlreadyDeletetedNotificationLoggingHandler> logger)
     : INotificationHandler<AlreadyDeletetedNotification>

@@ -1,7 +1,7 @@
 ﻿using MediatR;
 using CQRSMediatRExample.Data;
-using CQRSMediatRExample.Notifications;
 using CQRSMediatRExample.Domain;
+using CQRSMediatRExample.Notifications.Contracts;
 
 namespace CQRSMediatRExample.Features.ProductFeatures.Commands.Handlers;
 

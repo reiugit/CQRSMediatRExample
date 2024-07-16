@@ -1,5 +1,5 @@
 ﻿using MediatR;
 
-namespace CQRSMediatRExample.Notifications;
+namespace CQRSMediatRExample.Notifications.Contracts;
 
 public record AlreadyDeletetedNotification(string EntityTypeName) : INotification;

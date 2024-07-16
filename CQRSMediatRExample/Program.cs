@@ -4,7 +4,6 @@ using CQRSMediatRExample.Data;
 using CQRSMediatRExample.Behaviours;
 using CQRSMediatRExample.Features.ProductFeatures.Queries.Endpoints;
 using CQRSMediatRExample.Features.ProductFeatures.Commands.Endpoints;
-using CQRSMediatRExample.Features.ProductFeatures.Commands.Handlers;
 
 var builder = WebApplication.CreateBuilder(args);
 
