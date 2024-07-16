@@ -15,7 +15,7 @@ public class DeleteProductCommandHandler(AppDbContext context, IPublisher mediat
 
         if (product == null)
         {
-            await mediatr.Publish(new EntityWasAlreadyDeletetedNotification(typeof(Product).Name), cancellationToken);
+            await mediatr.Publish(new AlreadyDeletetedNotification(typeof(Product).Name), cancellationToken);
             return;
         }
 
