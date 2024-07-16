@@ -15,8 +15,7 @@ builder.Services.AddMediatR(config => config.RegisterServicesFromAssemblyContain
 builder.Services.AddSingleton(typeof(IPipelineBehavior<,>), typeof(RequestLoggingBehaviour<,>));
 builder.Services.AddSingleton(typeof(IPipelineBehavior<,>), typeof(ProductLoggingBehaviour<,>));
 builder.Services.AddSingleton(typeof(IPipelineBehavior<,>), typeof(ProductListLoggingBehaviour<,>));
-builder.Services.AddSingleton<IPipelineBehavior<DeleteProductCommand, Unit>,
-                              ProductDeleteLoggingBehaviour<DeleteProductCommand, Unit>>();
+builder.Services.AddSingleton(typeof(IPipelineBehavior<,>), typeof(ProductDeleteLoggingBehaviour<,>));
 
 var app = builder.Build();
 {
