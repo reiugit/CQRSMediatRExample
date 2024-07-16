@@ -11,10 +11,10 @@ public class RequestLoggingBehaviour<TRequest, TResponse>(ILogger<RequestLogging
         RequestHandlerDelegate<TResponse> next,
         CancellationToken cancellationToken)
     {
-        var response = await next();
+        logger.LogInformation(
+            ">> '{Request}' is going to be handled.",
+            typeof(TRequest).Name);
 
-        logger.LogInformation(">> '{Request}' was handled.", typeof(TRequest).Name);
-
-        return response;
+        return await next();
     }
 }
