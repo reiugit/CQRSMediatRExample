@@ -1,7 +1,6 @@
 ﻿using MediatR;
 using CQRSMediatRExample.Data;
-using CQRSMediatRExample.Domain;
-using CQRSMediatRExample.Notifications.Contracts;
+using CQRSMediatRExample.Features.ProductFeatures.Commands.Notifications.Contracts;
 
 namespace CQRSMediatRExample.Features.ProductFeatures.Commands.Handlers;
 
@@ -15,7 +14,7 @@ public class DeleteProductCommandHandler(AppDbContext context, IPublisher mediat
 
         if (product == null)
         {
-            await mediatr.Publish(new AlreadyDeletetedNotification(typeof(Product).Name), cancellationToken);
+            await mediatr.Publish(new AlreadyDeletetedNotification(command.Id), cancellationToken);
             return;
         }
 

@@ -1,13 +1,13 @@
 ﻿using MediatR;
-using CQRSMediatRExample.Notifications.Contracts;
+using CQRSMediatRExample.Features.ProductFeatures.Commands.Notifications.Contracts;
 
-namespace CQRSMediatRExample.Notifications.NotificationHandlers;
+namespace CQRSMediatRExample.Features.ProductFeatures.Commands.Notifications.Handlers;
 
 public class AlreadyDeletetedConsoleHandler : INotificationHandler<AlreadyDeletetedNotification>
 {
     public Task Handle(AlreadyDeletetedNotification notification, CancellationToken cancellationToken)
     {
-        Console.WriteLine($"Console: {notification.EntityTypeName} was already deleted\n");
+        Console.WriteLine($"Console: Product '{notification.Id}' was already deleted\n");
 
         return Task.CompletedTask;
     }
