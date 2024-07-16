@@ -4,6 +4,7 @@ using CQRSMediatRExample.Data;
 using CQRSMediatRExample.Behaviours;
 using CQRSMediatRExample.Features.ProductFeatures.Queries.Endpoints;
 using CQRSMediatRExample.Features.ProductFeatures.Commands.Endpoints;
+using CQRSMediatRExample.Features.ProductFeatures.Commands.Handlers;
 
 var builder = WebApplication.CreateBuilder(args);
 {
@@ -12,6 +13,8 @@ var builder = WebApplication.CreateBuilder(args);
     builder.Services.AddSingleton(typeof(IPipelineBehavior<,>), typeof(RequestLoggingBehaviour<,>));
     builder.Services.AddSingleton(typeof(IPipelineBehavior<,>), typeof(ProductLoggingBehaviour<,>));
     builder.Services.AddSingleton(typeof(IPipelineBehavior<,>), typeof(ProductListLoggingBehaviour<,>));
+    builder.Services.AddSingleton<IPipelineBehavior<DeleteProductCommand,Unit>,
+                                  ProductDeleteLoggingBehaviour<DeleteProductCommand,Unit>>();
 }
 
 var app = builder.Build();
