@@ -9,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 {
     builder.Services.AddDbContext<AppDbContext>(o => o.UseInMemoryDatabase("AppDb"));
     builder.Services.AddMediatR(config => config.RegisterServicesFromAssemblyContaining<Program>());
-    builder.Services.AddSingleton(typeof(IPipelineBehavior<,>), typeof(LoggingBehaviour<,>));
+    builder.Services.AddSingleton(typeof(IPipelineBehavior<,>), typeof(RequestLoggingBehaviour<,>));
 }
 
 var app = builder.Build();
